@@ -9,7 +9,7 @@ using todo.Models;
 
 namespace todo.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/people")]
     [ApiController]
     public class PeopleController : ControllerBase
     {
