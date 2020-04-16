@@ -11,5 +11,6 @@ namespace todo.Models
         public string name { get; set; }
         public string birthDate { get; set; }
         public long countOfTodoItems { get; set; }
+
     }
 }

@@ -15,5 +15,14 @@ namespace todo.Models
 
         public DbSet<todoItem> TodoItems { get; set; }
         public DbSet<People> Peoples { get; set; }
+
+
+        public IEnumerable<People> getPeopleWithOutTasks(IEnumerable<People> people)
+        {
+            return
+                from peopleWithOutTasks in people
+                where peopleWithOutTasks.countOfTodoItems == 0
+                select peopleWithOutTasks;
+        }
     }
 }

@@ -30,10 +30,7 @@ namespace todo.Controllers
         [HttpGet("max")]
         public IEnumerable<People> GetMaxPeoples()
         {
-            return
-                from people in _context.Peoples
-                where people.countOfTodoItems == 0
-                select people;
+            return _context.getPeopleWithOutTasks(_context.Peoples);
         }
         // GET: api/People/5
         [HttpGet("{id}")]
