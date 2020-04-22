@@ -10,7 +10,12 @@ namespace todo.Models
         public long id { get; set; }
         public string name { get; set; }
         public string birthDate { get; set; }
-        public long countOfTodoItems { get; set; }
 
+        public ICollection<todoItem> tasks { get; set; }
+
+        public int getCountOfTodoItems()
+        {
+            return tasks.Count;
+        }
     }
 }

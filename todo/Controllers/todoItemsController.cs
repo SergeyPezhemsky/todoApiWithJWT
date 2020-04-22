@@ -30,6 +30,7 @@ namespace todo.Controllers
 
         // GET: api/todoItems/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<todoItem>> GettodoItem(long id)
         {
             var todoItem = await _context.TodoItems.FindAsync(id);
@@ -74,19 +75,7 @@ namespace todo.Controllers
             return NoContent();
         }
 
-        // POST: api/todoItems
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<todoItem>> PosttodoItem(todoItem todoItem)
-        {
-            _context.TodoItems.Add(todoItem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof (GettodoItem), new { id = todoItem.Id }, todoItem);
-        }
-
+       
         // DELETE: api/todoItems/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "admin")]

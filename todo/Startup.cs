@@ -31,6 +31,8 @@ namespace todo
         {
             services.AddDbContext<TodoContex>(opt =>
                opt.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<peopleContex>(opt =>
+               opt.UseInMemoryDatabase("PeopleList"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters()
@@ -48,7 +50,7 @@ namespace todo
                 };
             }
             );
-            services.AddControllers();
+            services.AddControllers(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
