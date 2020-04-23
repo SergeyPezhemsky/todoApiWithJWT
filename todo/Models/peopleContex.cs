@@ -14,5 +14,10 @@ namespace todo.Models
         }
         public DbSet<People> Peoples { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<People>()
+                .OwnsMany(property => property.tasks);
+        }
     }
 }
